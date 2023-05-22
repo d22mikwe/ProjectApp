@@ -18,9 +18,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:title="Animals"
-            app:titleMarginStart="165dp" />
+            android:background="#808080"
+            app:title="Dog Center"
+            app:titleTextColor="#8b0000"
+            app:titleTextAppearance="@style/toolbar_Edit"
+            app:titleMarginStart="155dp" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
