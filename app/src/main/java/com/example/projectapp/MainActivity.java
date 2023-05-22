@@ -53,12 +53,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 String cost = item.getCost();
                 String info = item.getInfo();
                 String origin = item.getOrigin();
+                String type = item.getType();
+                String popularity = item.getPopularity();
 
                 Bundle extras = new Bundle();
                 extras.putString("name", name);
                 extras.putString("cost", cost);
                 extras.putString("info", info);
                 extras.putString("origin", origin);
+                extras.putString("type", origin);
+                extras.putString("popularity", popularity);
 
                 intent.putExtras(extras);
 
