@@ -1,5 +1,6 @@
 package com.example.projectapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -47,7 +48,21 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(DogItem item) {
-                Toast.makeText(MainActivity.this, item.getName(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, DetailViewActivity.class);
+                String name = item.getName();
+                String cost = item.getCost();
+                String info = item.getInfo();
+                String origin = item.getOrigin();
+
+                Bundle extras = new Bundle();
+                extras.putString("name", name);
+                extras.putString("cost", cost);
+                extras.putString("info", info);
+                extras.putString("origin", origin);
+
+                intent.putExtras(extras);
+
+                startActivity(intent);
             }
         });
         RecyclerView view = findViewById(R.id.itemlist);
