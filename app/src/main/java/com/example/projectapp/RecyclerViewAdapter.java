@@ -35,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
         holder.title.setText(dogItemList.get(position).getName());
+        holder.textDog.setText("Cost: " + dogItemList.get(position).getCost());
     }
 
     @Override
@@ -44,11 +45,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
+        TextView textDog;
+
+
 
         ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             title = itemView.findViewById(R.id.title);
+            textDog = itemView.findViewById(R.id.textDog);
+
         }
 
         @Override
