@@ -12,19 +12,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarDogBreed"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="#808080"
-            app:title="Dog Center"
-            app:titleTextColor="#8b0000"
-            app:titleTextAppearance="@style/toolbar_Edit"
-            app:titleMarginStart="155dp" />
-
-    </com.google.android.material.appbar.AppBarLayout>
     <TextView
         android:id="@+id/textViewPopularityInput"
         android:layout_width="231dp"
@@ -33,7 +22,6 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="36dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/textViewInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewPopularity"
@@ -45,7 +33,6 @@
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="25dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/textViewPopularityInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewType"
@@ -115,7 +102,6 @@
         android:layout_height="250dp"
         android:layout_marginTop="173dp"
         android:background="@color/textViewBreed"
-        android:text="TextView"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/textViewCost"
         tools:layout_editor_absoluteX="1dp" />
@@ -144,7 +130,6 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="24dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/textViewTypeInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewCost"

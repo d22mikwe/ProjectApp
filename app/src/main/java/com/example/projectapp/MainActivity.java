@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             @Override
             public void onClick(DogItem item) {
                 Intent intent = new Intent(MainActivity.this, DetailViewActivity.class);
+                String ID = item.getID();
+                String login = item.getLogin();
                 String name = item.getName();
                 String cost = item.getCost();
                 String info = item.getInfo();
@@ -57,11 +59,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 String popularity = item.getPopularity();
 
                 Bundle extras = new Bundle();
+                extras.putString("ID", ID);
+                extras.putString("login", login);
                 extras.putString("name", name);
                 extras.putString("cost", cost);
                 extras.putString("info", info);
                 extras.putString("origin", origin);
-                extras.putString("type", origin);
+                extras.putString("type", type);
                 extras.putString("popularity", popularity);
 
                 intent.putExtras(extras);

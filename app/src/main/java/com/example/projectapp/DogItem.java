@@ -10,7 +10,7 @@ public class DogItem {
     private String cost;
     private String info;
     private String type;
-    public DogItem (String ID, String login, String company, String name, String location, String cost, String category, String auxData) {
+    public DogItem (String ID, String login, String name, String company, String location, String cost, String category, String auxdata) {
         this.ID = ID;
         this.login = login;
         this.name = name;
@@ -18,7 +18,7 @@ public class DogItem {
         this.origin = location;
         this.cost = cost;
         this.type = category;
-        this.info = auxData;
+        this.info = auxdata;
     }
     public String getName() {
         return name;
