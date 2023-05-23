@@ -15,9 +15,13 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
 
+
     private List<DogItem> dogItemList;
+
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
+
+
 
 
     public RecyclerViewAdapter(Context context, List<DogItem> items, OnClickListener onClickListener) {
@@ -26,6 +30,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.onClickListener = onClickListener;
     }
 
+    public List<DogItem> getDogItemList(){
+        return dogItemList;
+    }
 
     @Override
     @NonNull
@@ -34,9 +41,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
+
         holder.title.setText(dogItemList.get(position).getName());
-        holder.textDog.setText("Cost: " + dogItemList.get(position).getCost());
+        holder.textDog.setText(dogItemList.get(position).getCost());
     }
+
 
     @Override
     public int getItemCount() {
@@ -59,7 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View view) {
-            onClickListener.onClick(dogItemList.get(getAdapterPosition()));
+            onClickListener.onClick(dogItemList.get(getAbsoluteAdapterPosition()));
         }
 
 

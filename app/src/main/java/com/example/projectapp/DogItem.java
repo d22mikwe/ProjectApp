@@ -2,11 +2,15 @@ package com.example.projectapp;
 
 import android.util.Log;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("WeakerAccess")
 public class DogItem {
+
+
     protected String ID;
     protected String name;
 
@@ -23,7 +27,6 @@ public class DogItem {
     protected String weight;
     protected String cost;
     protected String auxdata;
-
 
     public String getName() {
         return name;
@@ -56,5 +59,6 @@ public class DogItem {
     public String getAuxdata(){
         return auxdata;
     }
+
 
 }

@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=d22mikwe";
     ArrayList<DogItem> items;
+    List<String> filterHolder;
+
+
+
     ImageButton buttonAbout;
     Switch switchFilter;
     @Override
@@ -43,7 +47,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setContentView(R.layout.activity_main);
         new JsonTask(this).execute(JSON_URL);
 
-        switchFilter = findViewById(R.id.switchFilter);
+
+
         buttonAbout = findViewById(R.id.imageButtonAbout);
         buttonAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Gson newGson = new Gson();
         Type newType = new TypeToken<List<DogItem>>() {}.getType();
         items = newGson.fromJson(json, newType);
+
+
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(DogItem item) {
@@ -90,9 +97,39 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 startActivity(intent);
             }
         });
+
+
+
+        filterHolder = new ArrayList<String>();
+        for(int m = 0; m < adapter.getDogItemList().size(); m++){
+            filterHolder.add(m, adapter.getDogItemList().get(m).cost);
+        }
+
+
+
+        switchFilter = findViewById(R.id.switchFilter);
+        switchFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = switchFilter.isChecked();
+                if (checked == true){
+                    for(int z = 0; z < adapter.getDogItemList().size(); z++){
+                        adapter.getDogItemList().get(z).cost = "";
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+                if(checked == false){
+                    for(int z = 0; z < adapter.getDogItemList().size(); z++){
+                        adapter.getDogItemList().get(z).cost = filterHolder.get(z);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
         RecyclerView view = findViewById(R.id.itemlist);
         view.setAdapter(adapter);
         view.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
 }
