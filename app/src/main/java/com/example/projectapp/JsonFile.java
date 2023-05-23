@@ -1,4 +1,4 @@
-package com.example.projectapp;
+/*package com.example.projectapp;
 
 import android.app.Activity;
 import android.util.Log;
@@ -26,4 +26,4 @@ public class JsonFile {
         }
     }
 
-}
+}*/

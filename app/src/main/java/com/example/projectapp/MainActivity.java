@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -53,9 +54,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 String login = item.getLogin();
                 String name = item.getName();
                 String cost = item.getCost();
-                String info = item.getInfo();
+                String info = item.getAuxdata();
                 String origin = item.getOrigin();
-                String type = item.getType();
+                String weight = item.getWeight();
+                String type = item.getDogtype();
                 String popularity = item.getPopularity();
 
                 Bundle extras = new Bundle();
@@ -65,7 +67,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 extras.putString("cost", cost);
                 extras.putString("info", info);
                 extras.putString("origin", origin);
-                extras.putString("type", type);
+                extras.putString("dogtype", type);
+                extras.putString("weight", weight);
                 extras.putString("popularity", popularity);
 
                 intent.putExtras(extras);

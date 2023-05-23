@@ -48,10 +48,11 @@ public class DetailViewActivity extends AppCompatActivity
         tvInfo = findViewById(R.id.textViewInfo);
         tvCost = findViewById(R.id.textViewCostInput);
 
+        String info = extras.getString("info");
         tvBreed.setText(extras.getString("name"));
         tvCost.setText(extras.getString("cost"));
-        tvType.setText(extras.getString("ID"));
+        tvType.setText(extras.getString("dogtype"));
         tvPopularity.setText(extras.getString("popularity"));
-        tvInfo.setText(extras.getString("info"));
+        tvInfo.setText(info);
     }
 }
