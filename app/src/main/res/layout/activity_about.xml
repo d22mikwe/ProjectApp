@@ -30,14 +30,16 @@
         app:titleTextColor="#8b0000" />
 
 
-
     <TextView
         android:id="@+id/textViewAboutInfo"
         android:layout_width="413dp"
         android:layout_height="387dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="170dp"
         android:text="TextView"
+        android:textColor="#8b0000"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
