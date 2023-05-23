@@ -3,6 +3,8 @@ package com.example.projectapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,12 +34,20 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=d22mikwe";
     ArrayList<DogItem> items;
+    ImageButton buttonAbout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new JsonTask(this).execute(JSON_URL);
 
+        buttonAbout = findViewById(R.id.imageButtonAbout);
+        buttonAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentAbout = new Intent(MainActivity.this, AboutActivity.class);
+            }
+        });
     }
 
     @Override
