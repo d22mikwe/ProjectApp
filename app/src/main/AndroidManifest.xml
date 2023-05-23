@@ -23,7 +23,9 @@
         <activity
             android:name=".DetailViewActivity"
             android:exported="true">
-
+        </activity>
+        <activity android:name=".AboutActivity"
+            android:exported="true">
         </activity>
 
     </application>

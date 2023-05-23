@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             @Override
             public void onClick(View v) {
                 Intent intentAbout = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intentAbout);
             }
         });
     }

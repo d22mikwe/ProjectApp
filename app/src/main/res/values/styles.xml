@@ -3,4 +3,7 @@
     <style name="toolbar_Edit" parent="@style/Base.TextAppearance.AppCompat.Title">
         <item name="android:textSize">20sp</item>
     </style>
+    <style name="toolbarAboutEdit" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">40dp</item>
+    </style>
 </resources>
