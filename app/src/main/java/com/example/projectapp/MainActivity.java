@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=d22mikwe";
     ArrayList<DogItem> items;
     Button saveButton;
-
     ImageButton buttonAbout;
     Switch switchFilter;
     @Override
@@ -46,8 +45,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new JsonTask(this).execute(JSON_URL);
-
-
 
         buttonAbout = findViewById(R.id.imageButtonAbout);
         buttonAbout.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 startActivity(intentAbout);
             }
         });
-
 
         SharedPreferences sharedPreferences = getSharedPreferences("saveFilter", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -74,10 +70,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             }
         });
 
-
-
-
-
     }
 
     @Override
@@ -86,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Gson newGson = new Gson();
         Type newType = new TypeToken<List<DogItem>>() {}.getType();
         items = newGson.fromJson(json, newType);
-
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
             @Override
@@ -119,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             }
         });
 
-
         switchFilter = findViewById(R.id.switchFilter);
         switchFilter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,12 +128,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             }
         });
 
-
-
         RecyclerView view = findViewById(R.id.itemlist);
         view.setAdapter(adapter);
         view.setLayoutManager(new LinearLayoutManager(this));
-
 
         SharedPreferences sharedPreferences = getSharedPreferences("saveFilter", MODE_PRIVATE);
 

@@ -53,6 +53,7 @@ public class DetailViewActivity extends AppCompatActivity
         tvCost.setText(extras.getString("cost"));
         tvType.setText(extras.getString("dogtype"));
         tvPopularity.setText(extras.getString("popularity"));
+
         tvInfo.setText(info);
     }
 

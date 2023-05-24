@@ -32,8 +32,8 @@ public class AboutActivity extends AppCompatActivity {
 
     public String getTextInfo(){
         return "This application is targeted towards those who are looking to acquire a new best friend. You will get information about what" +
-                " type of breeds that are available, their cost and what kind of purpose they were bred for. Whether you are you are looking for" +
-                " a family friendly dog as your first pet or if you are a more experienced pet owner who wants a hunting or herding dog this center is your you!";
+                " type of breeds that are available, their cost and what kind of purpose they were bred for. Whether you are looking for" +
+                " a family friendly dog as your first pet or if you are a more experienced pet owner who wants a hunting or herding dog this center is for you!";
     }
 }
 
