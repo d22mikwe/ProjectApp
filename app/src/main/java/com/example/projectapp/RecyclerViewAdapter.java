@@ -2,6 +2,7 @@ package com.example.projectapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.title.setText(dogItemList.get(position).getName());
         holder.textDog.setText("Cost: " + dogItemList.get(position).getCost());
         holder.textPopularity.setText("Popularity: " + dogItemList.get(position).getPopularity());
+        holder.itemView.setBackgroundColor(Color.parseColor("#D3D3D3"));
     }
 
 

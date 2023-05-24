@@ -106,12 +106,15 @@
         android:id="@+id/textViewInfo"
         android:layout_width="408dp"
         android:layout_height="250dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="173dp"
-        android:textSize="20dp"
+        android:layout_marginEnd="2dp"
         android:background="@color/textViewBreed"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCost"
-        tools:layout_editor_absoluteX="1dp" />
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCost" />
 
     <TextView
         android:id="@+id/textViewCost"
