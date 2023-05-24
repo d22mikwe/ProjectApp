@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     List<String> filterHolder;
 
 
-
     ImageButton buttonAbout;
     Switch switchFilter;
     @Override
@@ -100,10 +99,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
 
 
-        filterHolder = new ArrayList<String>();
+        /*filterHolder = new ArrayList<String>();
         for(int m = 0; m < adapter.getDogItemList().size(); m++){
             filterHolder.add(m, adapter.getDogItemList().get(m).cost);
-        }
+        }*/
 
 
 
@@ -113,15 +112,12 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             public void onClick(View v) {
                 boolean checked = switchFilter.isChecked();
                 if (checked == true){
-                    for(int z = 0; z < adapter.getDogItemList().size(); z++){
-                        adapter.getDogItemList().get(z).cost = "";
-                    }
+                    adapter.filterDogItemList();
                     adapter.notifyDataSetChanged();
+
                 }
                 if(checked == false){
-                    for(int z = 0; z < adapter.getDogItemList().size(); z++){
-                        adapter.getDogItemList().get(z).cost = filterHolder.get(z);
-                    }
+                    adapter.unFilterDogItemList();
                     adapter.notifyDataSetChanged();
                 }
             }

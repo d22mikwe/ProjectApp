@@ -2,6 +2,7 @@ package com.example.projectapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -21,6 +23,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
+    private List<DogItem> dogItemListHolder = new ArrayList<DogItem>();
 
 
 
@@ -28,10 +31,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.layoutInflater = LayoutInflater.from(context);
         this.dogItemList = items;
         this.onClickListener = onClickListener;
+        Filter();
     }
 
-    public List<DogItem> getDogItemList(){
-        return dogItemList;
+    public void filterDogItemList(){
+        dogItemList.remove(dogItemListHolder.get(0));
+        dogItemList.remove(dogItemListHolder.get(1));
+        dogItemList.remove(dogItemListHolder.get(2));
+    }
+
+    public void Filter(){
+        dogItemListHolder.add(dogItemList.get(0));
+        dogItemListHolder.add(dogItemList.get(2));
+        dogItemListHolder.add(dogItemList.get(3));
+    }
+    public void unFilterDogItemList(){
+        dogItemList.add(dogItemListHolder.get(0));
+        dogItemList.add(dogItemListHolder.get(1));
+        dogItemList.add(dogItemListHolder.get(2));
     }
 
     @Override

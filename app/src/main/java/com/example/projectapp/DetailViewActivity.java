@@ -55,4 +55,6 @@ public class DetailViewActivity extends AppCompatActivity
         tvPopularity.setText(extras.getString("popularity"));
         tvInfo.setText(info);
     }
+
+
 }
