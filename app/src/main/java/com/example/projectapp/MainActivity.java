@@ -1,9 +1,11 @@
 package com.example.projectapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -35,8 +37,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=d22mikwe";
     ArrayList<DogItem> items;
-    List<String> filterHolder;
-
+    Button saveButton;
 
     ImageButton buttonAbout;
     Switch switchFilter;
@@ -56,6 +57,27 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 startActivity(intentAbout);
             }
         });
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("saveFilter", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        saveButton = findViewById(R.id.buttonSave);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!switchFilter.isChecked()){
+                    editor.putString("saveFilter", "yes").apply();
+                }
+                if(!switchFilter.isChecked()){
+                    editor.putString("saveFilter", "no").apply();
+                }
+            }
+        });
+
+
+
+
+
     }
 
     @Override
@@ -98,34 +120,41 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         });
 
 
-
-        /*filterHolder = new ArrayList<String>();
-        for(int m = 0; m < adapter.getDogItemList().size(); m++){
-            filterHolder.add(m, adapter.getDogItemList().get(m).cost);
-        }*/
-
-
-
         switchFilter = findViewById(R.id.switchFilter);
         switchFilter.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 boolean checked = switchFilter.isChecked();
-                if (checked == true){
+                if (checked){
                     adapter.filterDogItemList();
                     adapter.notifyDataSetChanged();
 
                 }
-                if(checked == false){
+                if(!checked){
                     adapter.unFilterDogItemList();
                     adapter.notifyDataSetChanged();
                 }
             }
         });
+
+
+
         RecyclerView view = findViewById(R.id.itemlist);
         view.setAdapter(adapter);
         view.setLayoutManager(new LinearLayoutManager(this));
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences("saveFilter", MODE_PRIVATE);
+
+        if(sharedPreferences.getString("saveFilter", "no").equals("yes")){
+            switchFilter.setChecked(true);
+            adapter.filterDogItemList();
+            adapter.notifyDataSetChanged();
+        }
+
     }
+
+
+
 }

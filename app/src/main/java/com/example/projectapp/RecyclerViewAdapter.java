@@ -85,7 +85,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View view) {
-            onClickListener.onClick(dogItemList.get(getAbsoluteAdapterPosition()));
+            onClickListener.onClick(dogItemList.get(getAdapterPosition()));
         }
 
 

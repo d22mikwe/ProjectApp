@@ -19,7 +19,7 @@ public class DetailViewActivity extends AppCompatActivity
     TextView tvInfo;
 
     Intent intent;
-    //Maybe set Bundle as NULL NULL
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
